@@ -1,0 +1,8 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // All app access goes through authenticated callable functions.
+    // Admin SDK bypasses rules; each callable must enforce its own authorization.
+    match /{document=**} { allow read, write: if false; }
+  }
+}
