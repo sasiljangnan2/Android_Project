@@ -1,0 +1,1 @@
+{"indexes":[{"collectionGroup":"recruitments","queryScope":"COLLECTION","fields":[{"fieldPath":"status","order":"ASCENDING"},{"fieldPath":"deadline","order":"ASCENDING"}]}],"fieldOverrides":[]}
