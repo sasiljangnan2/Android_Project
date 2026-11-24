@@ -1,0 +1,12 @@
+{
+  "USE_FIREBASE": true,
+  "FIREBASE_API_KEY": "",
+  "FIREBASE_APP_ID": "",
+  "FIREBASE_MESSAGING_SENDER_ID": "",
+  "FIREBASE_PROJECT_ID": "",
+  "FIREBASE_STORAGE_BUCKET": "",
+  "FIREBASE_AUTH_DOMAIN": "",
+  "GATE_NAME": "대학 정문",
+  "GATE_LAT": "",
+  "GATE_LNG": ""
+}
