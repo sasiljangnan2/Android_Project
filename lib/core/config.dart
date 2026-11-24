@@ -1,6 +1,7 @@
 import 'package:latlong2/latlong.dart';
 
 abstract final class AppConfig {
+  static const demoGate = LatLng(37.5665, 126.9780);
   static const live = bool.fromEnvironment('USE_FIREBASE');
   static const gateLat = String.fromEnvironment('GATE_LAT');
   static const gateLng = String.fromEnvironment('GATE_LNG');
@@ -9,7 +10,7 @@ abstract final class AppConfig {
     defaultValue: '대학 정문',
   );
   static LatLng get gate {
-    if (!live) return const LatLng(37.5665, 126.9780);
+    if (!live) return demoGate;
     final lat = double.tryParse(gateLat);
     final lng = double.tryParse(gateLng);
     if (lat == null ||

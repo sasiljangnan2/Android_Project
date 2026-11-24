@@ -4,6 +4,16 @@
 flutter analyze, flutter test, functions의 npm test/node --check.
 도메인 단위 테스트는 규칙 검증이며 실제 Firestore 동시성 증명이 아니다.
 
+UI 개편 자동 검사: 이메일/비밀번호 확인·가입·재로그인, 참여 확인 전 요청 없음,
+참여 응답 유실 재조회, 매칭·채팅 실제 저장, 내 모집 반경 독립, 작성 종료 확인,
+320×700에서 글자 200%와 다크 모드. `flutter test --dart-define=CAPTURE_UI=true`는
+`output/ui`에 PNG도 기록한다. 회원가입 테스트는 메모리 Repository이며 클라우드를 사용하지 않는다.
+
+Auth 서비스 통합 검사:
+`npx firebase-tools emulators:exec --only auth --project demo-hungry-student "node tools/test-auth-emulator.mjs"`.
+가입·중복 이메일·잘못된 비밀번호·재로그인·약한 비밀번호를 로컬 Firebase Auth에서 확인한다.
+실제 Firebase 계정과 Firestore/Storage 인가·동시성 검사는 별도로 수행한다.
+
 | TC | 관련 요구사항 | 검증 |
 | --- | --- | --- |
 | TC-01 | FR-01 | 반경 경계 안/밖, 서비스와 검색 반경 교집합, 위치 거부·5초 실패 정문 전환 |

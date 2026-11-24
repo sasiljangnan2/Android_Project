@@ -9,6 +9,13 @@ import '../domain/recruitment.dart';
 import 'repository.dart';
 
 class FirebaseRepository implements RecruitmentRepository {
+  @override
+  bool get isDemo => false;
+  @override
+  String? get email => FirebaseAuth.instance.currentUser?.email;
+  @override
+  Stream<String?> get authChanges =>
+      FirebaseAuth.instance.authStateChanges().map((u) => u?.uid);
   final _functions = FirebaseFunctions.instanceFor(region: 'asia-northeast3');
   @override
   String? get uid => FirebaseAuth.instance.currentUser?.uid;
@@ -84,6 +91,12 @@ class FirebaseRepository implements RecruitmentRepository {
         .timeout(const Duration(seconds: 5));
     return path;
   }
+
+  @override
+  Future<Uint8List?> photo(String path) => FirebaseStorage.instance
+      .ref(path)
+      .getData(5 * 1024 * 1024)
+      .timeout(const Duration(seconds: 5));
 
   @override
   Future<List<ChatMessage>> messages(String id) async =>

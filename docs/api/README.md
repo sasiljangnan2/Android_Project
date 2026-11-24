@@ -23,6 +23,11 @@ requestId/id는 영문·숫자·하이픈·밑줄 1~100자. 모집 생성 ID: ui
 응답 유실 시 생성은 같은 requestId, 참여는 getRecruitment 재조회 후 필요할 때만 수동 재시도한다.
 회원가입/로그인/로그아웃은 Firebase Auth SDK. 사진 업로드는 Storage SDK.
 
+2026-11-24 UI: 서비스 지역 전체 목록을 `listRecruitments`에 정문 좌표·radius=2000으로 요청한다.
+주변 탭은 이 결과에 선택 기준점·반경을 추가 필터링한다. 내 모집·채팅은 같은 서비스 지역
+결과에서 uid의 소유/참여·상태를 필터링하므로 주변 검색 반경에 따라 내 이력이 사라지지 않는다.
+서버 API·트랜잭션·인가 계약은 변경하지 않았다.
+
 ## 오류
 `unauthenticated`: 로그인 필요. `invalid-argument`: 필수값·형식 오류.
 `not-found`: 유효하지 않은 모집. `permission-denied`: 채팅 권한 없음.
