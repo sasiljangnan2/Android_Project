@@ -1,13 +1,15 @@
 import 'package:latlong2/latlong.dart';
 
 abstract final class AppConfig {
-  static const demoGate = LatLng(37.5665, 126.9780);
+  // Hansung University's official campus map: 정문(안내실), building ID 4.
+  // https://www.hansung.ac.kr/campusMap/hansung/view.do
+  static const demoGate = LatLng(37.58323278825486, 127.01038751364028);
   static const live = bool.fromEnvironment('USE_FIREBASE');
   static const gateLat = String.fromEnvironment('GATE_LAT');
   static const gateLng = String.fromEnvironment('GATE_LNG');
   static const gateName = String.fromEnvironment(
     'GATE_NAME',
-    defaultValue: '대학 정문',
+    defaultValue: '한성대학교 정문',
   );
   static LatLng get gate {
     if (!live) return demoGate;

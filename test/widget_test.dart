@@ -266,7 +266,8 @@ void main() {
       const HungryStudentApp(repository: null, startupError: '설정 확인 필요'),
     );
     expect(find.text('설정 확인 필요'), findsOneWidget);
-    expect(find.textContaining('시연 모드'), findsNothing);
+    expect(find.byKey(const Key('auth-submit')), findsNothing);
+    expect(find.byKey(const Key('demo-login')), findsNothing);
   });
 }
 

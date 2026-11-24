@@ -215,9 +215,7 @@ class _HomeScreenState extends State<HomeScreen> {
               trailing: const Icon(Icons.chevron_right),
               onTap: () => Navigator.pop(context, n.id),
             ),
-          const Notice(
-            '앱을 사용하는 동안 확인한 알림이에요. 푸시 알림은 Firebase 연결 후 별도 설정이 필요해요.',
-          ),
+          const Notice('알림을 누르면 모집의 최신 상태를 확인할 수 있어요.'),
         ],
       ),
     );
@@ -245,11 +243,7 @@ class _HomeScreenState extends State<HomeScreen> {
       context: context,
       builder: (c) => AlertDialog(
         title: const Text('앱을 종료할까요?'),
-        content: Text(
-          widget.repository.isDemo
-              ? '시연 계정과 데이터는 앱을 종료하면 사라져요.'
-              : '다음에 또 함께 나눠요.',
-        ),
+        content: const Text('다음에 또 함께 나눠요.'),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(c, false),
@@ -672,10 +666,7 @@ class _HomeScreenState extends State<HomeScreen> {
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
             ),
             const SizedBox(height: 8),
-            Text(
-              widget.repository.isDemo ? '시연 계정' : '이메일 계정',
-              style: const TextStyle(fontSize: 12),
-            ),
+            const Text('이메일 계정', style: TextStyle(fontSize: 12)),
           ],
         ),
       ),
@@ -699,7 +690,7 @@ class _HomeScreenState extends State<HomeScreen> {
               minVerticalPadding: 16,
               leading: const Icon(Icons.notifications_none),
               title: const Text('알림'),
-              subtitle: const Text('앱 내 상태 알림 · 푸시 연결 준비 중'),
+              subtitle: const Text('모집 상태 알림'),
               trailing: const Icon(Icons.chevron_right),
               onTap: _notifications,
             ),
@@ -710,10 +701,6 @@ class _HomeScreenState extends State<HomeScreen> {
       const Notice(
         '이 앱은 함께 구매할 사람을 연결해요. 매칭 완료는 구매·결제 완료가 아니며, 금액을 자동 정산하지 않아요.',
       ),
-      if (widget.repository.isDemo) ...[
-        const SizedBox(height: 12),
-        const Notice('시연 모드 · 계정과 데이터는 앱 실행 중에만 유지돼요. 정문과 모집 위치는 샘플이에요.'),
-      ],
       const SizedBox(height: 24),
       OutlinedButton.icon(
         onPressed: _signingOut
@@ -773,41 +760,12 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 640),
-          child: Column(
-            children: [
-              if (widget.repository.isDemo)
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.science_outlined,
-                        size: 13,
-                        color: Theme.of(context).colorScheme.onSurfaceVariant,
-                      ),
-                      const SizedBox(width: 5),
-                      Expanded(
-                        child: Text(
-                          '시연 모드 · 샘플 위치와 모집',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: Theme.of(context)
-                                .colorScheme
-                                .onSurfaceVariant,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              const SizedBox(height: 4),
-              Expanded(
-                child: IndexedStack(
-                  index: _tab,
-                  children: [_nearby(), _mine(), _chats(), _profile()],
-                ),
-              ),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.only(top: 4),
+            child: IndexedStack(
+              index: _tab,
+              children: [_nearby(), _mine(), _chats(), _profile()],
+            ),
           ),
         ),
       ),

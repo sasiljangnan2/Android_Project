@@ -48,7 +48,7 @@ Map<String, Map<String, dynamic>> demoRecruitments(DateTime now) {
       members: ['demo-owner', 'demo-neighbor'],
       northMeters: 445,
       hours: 8,
-      place: '시연 정문 앞',
+      place: '정문 앞',
     ),
     item(
       id: 'demo-1',
@@ -60,7 +60,7 @@ Map<String, Map<String, dynamic>> demoRecruitments(DateTime now) {
       members: ['demo-owner'],
       northMeters: 712,
       hours: 20,
-      place: '시연 학생회관 앞',
+      place: '학생회관 앞',
       strawberries: true,
     ),
     item(
@@ -74,7 +74,7 @@ Map<String, Map<String, dynamic>> demoRecruitments(DateTime now) {
       members: [demoUserId, 'demo-neighbor-2', 'demo-neighbor-3'],
       northMeters: 760,
       hours: 12,
-      place: '시연 도서관 앞 벤치',
+      place: '도서관 앞 벤치',
     ),
     item(
       id: 'demo-joined-open',
@@ -87,7 +87,7 @@ Map<String, Map<String, dynamic>> demoRecruitments(DateTime now) {
       members: ['demo-owner-2', demoUserId],
       northMeters: 850,
       hours: 16,
-      place: '시연 기숙사 입구',
+      place: '기숙사 입구',
       strawberries: true,
     ),
     item(
@@ -101,7 +101,7 @@ Map<String, Map<String, dynamic>> demoRecruitments(DateTime now) {
       members: ['demo-owner-3', demoUserId, 'demo-neighbor-4'],
       northMeters: 1200,
       hours: 24,
-      place: '시연 정문 오른쪽 벤치',
+      place: '정문 오른쪽 벤치',
       status: 'matched',
     ),
     item(
@@ -115,7 +115,7 @@ Map<String, Map<String, dynamic>> demoRecruitments(DateTime now) {
       members: [demoUserId, 'demo-neighbor-5', 'demo-neighbor-6'],
       northMeters: 1500,
       hours: 30,
-      place: '시연 중앙광장',
+      place: '중앙광장',
       status: 'matched',
     ),
     item(
@@ -129,7 +129,7 @@ Map<String, Map<String, dynamic>> demoRecruitments(DateTime now) {
       members: ['demo-owner-4', demoUserId],
       northMeters: 1750,
       hours: -2,
-      place: '시연 후문 편의점 앞',
+      place: '후문 편의점 앞',
       status: 'cancelled',
       strawberries: true,
     ),
@@ -144,7 +144,7 @@ Map<String, Map<String, dynamic>> demoRecruitments(DateTime now) {
       members: [demoUserId, 'demo-neighbor-7'],
       northMeters: 1900,
       hours: -6,
-      place: '시연 체육관 입구',
+      place: '체육관 입구',
       status: 'cancelled',
       strawberries: true,
     ),

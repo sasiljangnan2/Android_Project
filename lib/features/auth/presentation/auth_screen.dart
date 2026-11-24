@@ -210,18 +210,12 @@ class _AuthScreenState extends State<AuthScreen> {
                         _register ? '이미 계정이 있나요? 로그인' : '처음 오셨나요? 회원가입',
                       ),
                     ),
-                    if (widget.repository.isDemo) ...[
-                      const SizedBox(height: 22),
-                      const Notice(
-                        '시연 모드 · 가입한 계정과 데이터는 앱을 종료하면 사라져요. 실제 Firebase 계정은 생성되지 않아요.',
+                    if (widget.repository.isDemo && !_register)
+                      TextButton(
+                        key: const Key('demo-login'),
+                        onPressed: _busy ? null : () => _submit(demo: true),
+                        child: const Text('바로 시작하기'),
                       ),
-                      if (!_register)
-                        TextButton(
-                          key: const Key('demo-login'),
-                          onPressed: _busy ? null : () => _submit(demo: true),
-                          child: const Text('시연 계정으로 둘러보기'),
-                        ),
-                    ],
                   ],
                 ),
               ),
