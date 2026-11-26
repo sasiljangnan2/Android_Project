@@ -19,7 +19,7 @@ class DemoRepository implements RecruitmentRepository {
     _items.addAll(demoRecruitments(now));
     _messages.addAll(demoMessages(now));
   }
-  static const demoEmail = 'demo@hungry.local', demoPassword = 'Demo1234!';
+  static const demoEmail = 'student@example.com', demoPassword = 'Demo1234!';
   final _events = StreamController<String?>.broadcast();
   final Map<String, ({String uid, String salt, String hash})> _accounts = {};
   final Map<String, Map<String, dynamic>> _items = {};

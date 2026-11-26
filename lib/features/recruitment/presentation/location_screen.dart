@@ -40,11 +40,11 @@ class _LocationScreenState extends State<LocationScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Padding(
-            padding: EdgeInsets.fromLTRB(20, 8, 20, 16),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 8, 20, 16),
             child: Text(
-              '지도를 눌러 만날 장소를 선택해 주세요.\n정문 반경 2km 안에서만 등록할 수 있어요.',
-              style: TextStyle(height: 1.5),
+              '${AppConfig.gateName} 기준이에요.\n지도를 눌러 정문 반경 2km 안의 수령 장소를 선택해 주세요.',
+              style: const TextStyle(height: 1.5),
             ),
           ),
           Expanded(
